@@ -3,23 +3,28 @@ Type=Service
 MimeType=image/*;video/*;
 Actions=compress-to-10;compress-to-4;compress-to-2;compress-to-custom
 X-KDE-Submenu=Compress to...
+X-KDE-Submenu[uk]=Стиснути до...
 
 [Desktop Action compress-to-10]
-Name=10mb
+Name=10MB
+Name[uk]=10МБ
 Icon=insert-image
 Exec=resize -s 10 %f
 
 [Desktop Action compress-to-4]
-Name=4mb
+Name=4MB
+Name[uk]=4МБ
 Icon=insert-image
 Exec=resize -s 4 %f
 
 [Desktop Action compress-to-2]
-Name=2mb
+Name=2MB
+Name[uk]=2МБ
 Icon=insert-image
 Exec=resize -s 2 %f
 
 [Desktop Action compress-to-custom]
 Name=Custom...
+Name[uk]=Вказати...
 Icon=insert-image
-Exec=resize -s "$(kdialog --title "Compress Media" --icon "insert-image" --inputbox "Input target size for the file in mb")" %f
+Exec=resize -s "$(kdialog --title "Compress Media" --icon "insert-image" --inputbox "Input target size for the file in MB")" %f
