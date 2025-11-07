@@ -2,6 +2,9 @@ A script for resizing images and videos and a service file that adds an option t
 
 The service provides 3 default size options: 10mb, 4mb, 2mb and an option to set you own target size with kdialog.
 
+> [!NOTE]
+> For image compression the output format will always be webp.
+
 Dependencies:
 - bash
 - kdialog
