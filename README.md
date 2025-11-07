@@ -8,8 +8,9 @@ Dependencies:
 - ffmpeg
 - imagemagick
 
-You can install both the script and the service with the provided `install.sh` script, `uninstall.sh` uninstalls them.
-
-For manual installation:
-- compress-media          goes in ~/.local/bin/ (or other folder in your PATH)
-- compress-media.desktop  goes in ~/.local/share/kio/servicemenus/
+Installation options:
+- AUR: https://aur.archlinux.org/packages/dolphin-compress-media
+- Provided `install.sh` script, `uninstall.sh` for uninstall.
+- Manually:
+  - compress-media          goes in ~/.local/bin/ (or other folder in your PATH)
+  - compress-media.desktop  goes in ~/.local/share/kio/servicemenus/
