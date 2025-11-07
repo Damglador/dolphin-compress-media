@@ -47,6 +47,7 @@ Input file must not be more than 8 times bigger than target size."
         total_bitrate=$(( target_size / length ))
         audio_bitrate=$(( 128 * 1000 )) # 128k bit rate
         video_bitrate=$(( total_bitrate - audio_bitrate ))
+        trap 'rm "${TMPDIR:-/tmp}/ffmpeg2pass-$(basename "$file")"*' EXIT
         # -r sets output FPS
         # -vf "scale=-1:'min(1080,ih)'" if the image is higher than 1080p will rescale to 1080p
         ffmpeg -y -i "$file" \
@@ -56,7 +57,7 @@ Input file must not be more than 8 times bigger than target size."
             -preset medium \
             -b:v $video_bitrate \
             -pass 1 \
-            -passlogfile "${TMPDIR:-/tmp}/ffmpeg2pass-$(basename "$file").log" \
+            -passlogfile "${TMPDIR:-/tmp}/ffmpeg2pass-$(basename "$file")" \
             -b:a $audio_bitrate \
             -f "$ext" \
             /dev/null && \
@@ -67,11 +68,9 @@ Input file must not be more than 8 times bigger than target size."
             -preset medium \
             -b:v $video_bitrate \
             -pass 2 \
-            -passlogfile "${TMPDIR:-/tmp}/ffmpeg2pass-$(basename "$file").log" \
+            -passlogfile "${TMPDIR:-/tmp}/ffmpeg2pass-$(basename "$file")" \
             -b:a $audio_bitrate \
             "${file%."${ext}"}-${target_size_mb}mb.${ext}"
-        rm "${TMPDIR:-/tmp}/ffmpeg2pass-$(basename "$file").log"
-        rm "${TMPDIR:-/tmp}/ffmpeg2pass-$(basename "$file").log.mbtree"
     elif [[ "$mime" == image/* ]]; then
         magick "$file" \
             -define "webp:extent=$((target_size_mb * 1024))KB" \
