@@ -6,20 +6,20 @@ X-KDE-Submenu=Compress to...
 X-KDE-Submenu[uk]=Стиснути до...
 
 [Desktop Action compress-to-10]
-Name=10MB
-Name[uk]=10МБ
+Name=10MiB
+Name[uk]=10МіБ
 Icon=insert-image
 Exec=compress-media -s 10 %f
 
 [Desktop Action compress-to-4]
-Name=4MB
-Name[uk]=4МБ
+Name=4MiB
+Name[uk]=4МіБ
 Icon=insert-image
 Exec=compress-media -s 4 %f
 
 [Desktop Action compress-to-2]
-Name=2MB
-Name[uk]=2МБ
+Name=2MiB
+Name[uk]=2МіБ
 Icon=insert-image
 Exec=compress-media -s 2 %f
 
@@ -27,4 +27,4 @@ Exec=compress-media -s 2 %f
 Name=Custom...
 Name[uk]=Вказати...
 Icon=insert-image
-Exec=size="$(kdialog --title "Compress Media" --icon "insert-image" --inputbox "Input target size for the file in MB")"; [ -n "$size" ] && compress-media -s "$size" %f
+Exec=size="$(kdialog --title "Compress Media" --icon "insert-image" --inputbox "Input target size for the file in MiB")"; [ -n "$size" ] && compress-media -s "$size" %f

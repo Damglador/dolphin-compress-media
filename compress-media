@@ -32,7 +32,7 @@ for file in "$@"; do
             kdialog \
                 --title "Compress Media: File is too big!" \
                 --error "
-«$(basename "$file")» is too big (${size}MB) for the target size of ${target_size_mb}MB.
+«$(basename "$file")» is too big (${size}MB) for the target size of ${target_size_mb}MiB.
 Input file must not be more than 8 times bigger than target size."
             exit 1
         fi
